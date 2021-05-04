@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>IMC javascript</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+		
+		.container {
+			margin:0 auto;
+			padding:0 20px 0 20px;
+			max-width:700px;
+		}
+		</style>
+		
+    </head>
+  <body>
+        <h1>Calculo IMC (usando javascipt)</h1>
+	
+	<form action="calculaIMC">
+	<table>
+	<tbody><tr>
+		<td>Sua massa (quilogramas):</td> 
+		<td><input id="massa" type="text" ></td>
+	</tr>
+	<tr>
+		<td>Sua altura (metros):</td> 
+		<td><input id="altura" type="text"></td>
+	</tr>
+	
+        <!--<tr>
+		<td>Sexo: </td>
+		<td><input id="fem" type="radio" name="sexo" >Feminino </td>
+		<td><input id="masc" type="radio" name="sexo" >Masculino </td>
+        -->
+	</tbody>
+        </table>
+	</form>
+	<input type="button" onclick="calculaIMC();" value="Calcula" >
+	<p>"teste"</p>
+	<p id="demo"></p>
+	
+	
+	<input type="button" onclick="ParseJson();" value="Chama parse" >
+		<div class="container">
+			<ul id="tasks"  style = list-style:none;>
+				<li>Like it!</li>
+			</ul>
+		</div>
+	<input type="button" onclick="ParseJson1();" value="Chama parse1" >
+
+<!--
+	var taskn;
+	for(i=1;i<=count;i++){
+	taskn = prompt("task #"+i);
+	//console.log(taskn);
+	var p = document.createElement("li");
+	var node = document.createT extNode(taskn);
+	p.appendChild(node);
+	var z = document.getElementById("tasks");
+	z.appendChild(p);
+	}
+
+-->
+
+ 
+
+
+<!--
+-->
+<script type="text/javascript">
+	function square(x) {
+	return x * x;
+	}
+
+
+
+	function ParseJson1(){
+	var text1 = '{ "employees" : [' +
+	'{ "firstName":"John" , "lastName":"Doe" },' +
+	'{ "firstName":"Anna" , "lastName":"Smith" },' +
+	'{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+	
+	var obj = JSON.parse(text1);
+	
+	    var count=3;
+		var taskn=3;
+		for(i=0;i<=count;i++){
+		var texto = obj.employees[i].firstName + " " + obj.employees[i].lastName;
+		
+		var p = document.createElement("li");
+		var node = document.createTextNode(texto);
+		//p.appendChild(node);
+		//var texto = obj.employees[i].firstName + " " + obj.employees[i].lastName;
+		var z = document.getElementById("tasks");
+		document.getElementById("tasks").append(texto);
+		z.appendChild(p);
+		}
+	}
+
+
+	function ParseJson(){
+	var text = '{ "employees" : [' +
+	'{ "firstName":"John" , "lastName":"Doe" },' +
+	'{ "firstName":"Anna" , "lastName":"Smith" },' +
+	'{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+	
+	var obj = JSON.parse(text);
+	
+	
+	
+	document.getElementById("demo").innerHTML =
+	obj.employees[2].firstName + " " + obj.employees[2].lastName;
+	}
+
+
+
+	function calculaIMC(){
+		var altura = document.getElementById("altura").value;
+		var massa = document.getElementById("massa").value;
+		
+		var imc = massa / (altura*altura);
+		var texto;
+                
+	if(imc < 18)
+        {
+            condicao = "Abaixo do peso";
+        }
+        else
+            if(imc > 18 & imc < 25)
+            {
+                condicao = "Peso normal";
+            }
+            else
+                if(imc > 25 & imc < 30)
+                {
+                    condicao = "Acima do peso";
+                }
+                else
+                    if(imc > 30)
+                    {
+                        condicao = "obesso";
+                    }
+
+		alert( "O indice calculado é: " + imc + " " + condicao);
+		}
+	</script>
+
+	
+</body>
+</html>

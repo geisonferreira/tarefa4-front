@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>IMC javascript</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+		
+		.container {
+			margin:0 auto;
+			padding:0 20px 0 20px;
+			max-width:1400px;
+		}
+		</style>
+		
+    </head>
+  <body>
+        <h1>Calculo IMC (usando javascipt)</h1>
+	
+	<form action="calculaIMC">
+	<table>
+	<tbody><tr>
+		<td>Sua massa (quilogramas):</td> 
+		<td><input id="massa" type="text" ></td>
+	</tr>
+	<tr>
+		<td>Sua altura (metros):</td> 
+		<td><input id="altura" type="text"></td>
+	</tr>
+	
+        <!--<tr>
+		<td>Sexo: </td>
+		<td><input id="fem" type="radio" name="sexo" >Feminino </td>
+		<td><input id="masc" type="radio" name="sexo" >Masculino </td>
+        -->
+	</tbody>
+        </table>
+	</form>
+	<input type="button" onclick="calculaIMC();" value="Calcula" >
+	<p>"teste"</p>
+	<p id="demo"></p>
+	
+	
+	<input type="button" onclick="ParseJson();" value="Chama parse" >
+		<div class="container">
+			<ul id="tasks"  style = list-style:none;>
+				<li>EVENTOS!</li>
+			</ul>
+		</div>
+	<input type="button" onclick="ParseJson1();" value="Chama parse1" >
+
+    <input type="button" onclick="chamarJson();" value="Chama json" >
+
+<!--
+	var taskn;
+	for(i=1;i<=count;i++){
+	taskn = prompt("task #"+i);
+	//console.log(taskn);
+	var p = document.createElement("li");
+	var node = document.createT extNode(taskn);
+	p.appendChild(node);
+	var z = document.getElementById("tasks");
+	z.appendChild(p);
+	}
+
+
+"[{"idevento": 1,
+        "nome": "SEM.Instituto de Matemática Pura e Aplicada",
+        "sigla": "IMPA",
+        "areadeconcentracao": "matemática",
+        "instituicaoorganizadora": "IMPA"
+    },
+    {
+        "idevento": 2,
+        "nome": "SEM. Dep. Econ Puc-Rio",
+        "sigla": "ECO",
+        "areadeconcentracao": "Economia",
+        "instituicaoorganizadora": "Puc-Rio"
+    },
+    {
+        "idevento": 3,
+        "nome": "SEM. ACAD. Instituto de Computação-UFF",
+        "sigla": "IC-UFF",
+        "areadeconcentracao": "Computação",
+        "instituicaoorganizadora": "UFF"
+    },
+    {
+        "idevento": 4,
+        "nome": "Portões Abertos Semana do Aviador",
+        "sigla": "ITA",
+        "areadeconcentracao": "Ciências Aeronáuticas",
+        "instituicaoorganizadora": "Instituto Tecnológico da Aeronautica"
+    }
+]"
+ 
+
+-->
+<!--
+-->
+<script type="text/javascript">
+
+function chamarJson() {
+	
+	 const request = new XMLHttpRequest();
+
+  request.open('GET', 'localhost:8080/ev/todos')
+
+  request.onload = function () {
+    console.log(JSON.parse(this.responseText))
+  }
+
+  request.onerror = function () {
+    console.log('erro ao executar a requisição')
+  }
+
+  request.send();
+}
+
+
+
+
+	function square(x) {
+	return x * x;
+	}
+
+/*
+function ParseJson1(){
+var text1 ='[{"idevento":1,"nome":"SEM.Instituto de Matemática Pura e Aplicada","sigla":"IMPA","areadeconcentracao":"matemática","instituicaoorganizadora":"IMPA"},{"idevento":2,"nome":"SEM. Dep. Econ Puc-Rio","sigla":"ECO","areadeconcentracao":"Economia","instituicaoorganizadora":"Puc-Rio"},{"idevento":3,"nome":"SEM. ACAD. Instituto de Computação-UFF","sigla":"IC-UFF","areadeconcentracao":"Computação","instituicaoorganizadora":"UFF"},{"idevento":4,"nome":"Portões Abertos Semana do Aviador","sigla":"ITA","areadeconcentracao":"Ciências Aeronáuticas","instituicaoorganizadora":"Instituto Tecnológico da Aeronautica"}]'
+let text1Array = text1.
+*/
+
+
+	function square(x) {
+	return x * x;
+	}
+
+function ParseJson1(){
+  var text1 ='[{"idevento":1,"nome":"SEM.Instituto de Matemática Pura e Aplicada","sigla":"IMPA","areadeconcentracao":"matemática","instituicaoorganizadora":"IMPA"},{"idevento":2,"nome":"SEM. Dep. Econ Puc-Rio","sigla":"ECO","areadeconcentracao":"Economia","instituicaoorganizadora":"Puc-Rio"},{"idevento":3,"nome":"SEM. ACAD. Instituto de Computação-UFF","sigla":"IC-UFF","areadeconcentracao":"Computação","instituicaoorganizadora":"UFF"},{"idevento":4,"nome":"Portões Abertos Semana do Aviador","sigla":"ITA","areadeconcentracao":"Ciências Aeronáuticas","instituicaoorganizadora":"Instituto Tecnológico da Aeronautica"}]';
+ //console.log(text1);
+  var JsonObject = JSON.parse(text1);
+ // var texto1 = JsonObject.idevento;
+ //superHeroes['members'][1]['powers'][2]
+  
+   var count = Object.keys(JsonObject).length;
+  //var count=4;
+  //var taskn=1;
+  for(i=0;i<=count;i++){
+		var eventos = "ID:                  " + JsonObject[i].idevento + " NOME:                  " + JsonObject[i].nome + " SIGLA:                  " + JsonObject[i].sigla + " AREA DE CONCENTRAÇÃO:                  " + JsonObject[i].areadeconcentracao + " INSTITUIÇÃO ORGANIZADORA:                  " + JsonObject[i].instituicaoorganizadora;
+		var p = document.createElement("li");
+		var node = document.createTextNode(eventos);
+		p.appendChild(node);
+		//var texto = obj.employees[i].firstName + " " + obj.employees[i].lastName;
+		var z = document.getElementById("tasks");
+		//document.getElementById("tasks").append(eventos);
+		z.appendChild(p);
+  
+  
+  }
+  /*
+  var texto2 = JsonObject[0].idevento;
+  console.log(JsonObject[0].idevento);
+  console.log(JsonObject[0].nome);		
+  console.log(JsonObject[0].sigla);
+  console.log(JsonObject[0].areadeconcentracao);
+  console.log(JsonObject[0].instituicaoorganizadora);
+  
+  
+  var count=3;
+  var taskn=3;
+  for(i=0;i<=count;i++){
+  var texto = obj.employees[i].firstName + " " + obj.employees[i].lastName;
+  */
+}
+
+
+
+/*
+var obj = JSON.parse(text1);
+
+	    var count=3;
+		var taskn=3;
+		for(i=0;i<=count;i++){
+		var texto = obj.employees[i].firstName + " " + obj.employees[i].lastName;
+		
+		var p = document.createElement("li");
+		var node = document.createTextNode(texto);
+		//p.appendChild(node);
+		//var texto = obj.employees[i].firstName + " " + obj.employees[i].lastName;
+		var z = document.getElementById("tasks");
+		document.getElementById("tasks").append(texto);
+		z.appendChild(p);
+		}
+	}*/
+	
+	
+/*
+function ParseJsonErro(){
+var text1 ='[{"idevento":1,"nome":"SEM.Instituto de Matemática Pura e Aplicada","sigla":"IMPA","areadeconcentracao":"matemática","instituicaoorganizadora":"IMPA"},{"idevento":2,"nome":"SEM. Dep. Econ Puc-Rio","sigla":"ECO","areadeconcentracao":"Economia","instituicaoorganizadora":"Puc-Rio"},{"idevento":3,"nome":"SEM. ACAD. Instituto de Computação-UFF","sigla":"IC-UFF","areadeconcentracao":"Computação","instituicaoorganizadora":"UFF"},{"idevento":4,"nome":"Portões Abertos Semana do Aviador","sigla":"ITA","areadeconcentracao":"Ciências Aeronáuticas","instituicaoorganizadora":"Instituto Tecnológico da Aeronautica"}]'
+let text1Array = 
+
+var obj = JSON.parse(text1);
+
+	    var count=3;
+		var taskn=3;
+		for(i=0;i<=count;i++){
+		var texto = obj.employees[i].firstName + " " + obj.employees[i].lastName;
+		
+		var p = document.createElement("li");
+		var node = document.createTextNode(texto);
+		//p.appendChild(node);
+		//var texto = obj.employees[i].firstName + " " + obj.employees[i].lastName;
+		var z = document.getElementById("tasks");
+		document.getElementById("tasks").append(texto);
+		z.appendChild(p);
+		}
+	}
+
+*/
+
+
+
+	function ParseJsonz(){
+	var text1 = '{ "employees" : [' +
+	'{ "firstName":"John" , "lastName":"Doe" },' +
+	'{ "firstName":"Anna" , "lastName":"Smith" },' +
+	'{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+	
+	var obj = JSON.parse(text1);
+	
+	    var count=3;
+		var taskn=3;
+		for(i=0;i<=count;i++){
+		var texto = obj.employees[i].firstName + " " + obj.employees[i].lastName;
+		
+		var p = document.createElement("li");
+		var node = document.createTextNode(texto);
+		//p.appendChild(node);
+		//var texto = obj.employees[i].firstName + " " + obj.employees[i].lastName;
+		var z = document.getElementById("tasks");
+		document.getElementById("tasks").append(texto);
+		z.appendChild(p);
+		}
+	}
+
+
+	function ParseJson(){
+	var text = '{ "employees" : [' +
+	'{ "firstName":"John" , "lastName":"Doe" },' +
+	'{ "firstName":"Anna" , "lastName":"Smith" },' +
+	'{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+	
+	var obj = JSON.parse(text);
+	
+	
+	
+	document.getElementById("demo").innerHTML =
+	obj.employees[2].firstName + " " + obj.employees[2].lastName;
+	}
+
+
+
+	function calculaIMC(){
+		var altura = document.getElementById("altura").value;
+		var massa = document.getElementById("massa").value;
+		
+		var imc = massa / (altura*altura);
+		var texto;
+                
+	if(imc < 18)
+        {
+            condicao = "Abaixo do peso";
+        }
+        else
+            if(imc > 18 & imc < 25)
+            {
+                condicao = "Peso normal";
+            }
+            else
+                if(imc > 25 & imc < 30)
+                {
+                    condicao = "Acima do peso";
+                }
+                else
+                    if(imc > 30)
+                    {
+                        condicao = "obesso";
+                    }
+
+		alert( "O indice calculado é: " + imc + " " + condicao);
+		}
+	</script>
+
+	
+</body>
+</html>

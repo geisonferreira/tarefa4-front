@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>EVENTOS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+		
+		.container {
+			margin:0 auto;
+			padding:0 20px 0 20px;
+			max-width:1400px;
+		}
+		.container1 {
+			margin:0 auto;
+			padding:0 20px 0 20px;
+			max-width:1400px;
+		}
+		</style>
+		
+    </head>
+  <body>    
+
+	<div class="container">
+	<ul id="tasks"  style = list-style:none;>
+		<li>EVENTOS!</li>
+	</ul>
+	</div>
+		
+    <input type="button" onclick="main('http://localhost:8080/ev/todos');" value="Lista Eventos" >
+	<p>Escolha o ID de um Evento para consultar as edições </p>
+	<input id="EdicaoUmEvento" type="number" min="1">	
+	<input type="button" onclick="main('http://localhost:8080/ed/todos');" value="Lista Edição (por ID)" >
+
+
+		<div class="container1">
+			<ul id="tasks1"  style = list-style:none;>
+				<li>EDIÇÕES!</li>
+			</ul>
+		</div>
+
+
+
+
+<script type="text/javascript">
+
+function main(EndAPI){
+		
+		if(EndAPI == 'http://localhost:8080/ev/todos'){
+			Funcao = "listar todos eventos"
+			JsonObject = chamarJson('http://localhost:8080/ev/todos');
+			Controlador(EndAPI,JsonObject) 
+		//	ParseJson1(JsonObject);
+        }else
+            if(EndAPI == 'http://localhost:8080/ed/todos')
+            {
+            Funcao = "listar todos edições"
+			JsonObject = chamarJson('http://localhost:8080/ed/todos');
+			Controlador(EndAPI,JsonObject) 
+            }
+		    else
+            {
+                console.log("deu ruim")
+            }
+
+}
+
+
+
+function Controlador(EndAPI,JsonObject){
+		var JsonObject = JsonObject
+if(EndAPI == "http://localhost:8080/ev/todos"){
+			
+			ParseJson1(JsonObject);
+			
+        }
+        else
+            if(EndAPI == "http://localhost:8080/ed/todos")
+            {
+				var ideventoSelecionada = document.getElementById("EdicaoUmEvento").value;
+				ParseJson2(JsonObject,ideventoSelecionada);
+                console.log("TO DO")
+				//condicao = "Peso normal";
+            }
+		    else
+            {
+                console.log("deu ruim")
+            }
+	
+
+
+}
+
+
+
+
+
+
+function chamarJson(EndAPI) {
+		const request = new XMLHttpRequest();
+		
+		request.open('GET', EndAPI)
+		
+		request.onload = function () {
+		console.log(JSON.parse(this.responseText))
+		//JsonObject = JSON.parse(this.responseText);
+		//main(EndAPI,JsonObject)
+	    Controlador(EndAPI,(JSON.parse(this.responseText)));
+  }
+
+  request.onerror = function () {
+    console.log('erro ao executar a requisição')
+  }
+
+  request.send();
+
+}
+
+
+
+
+	function square(x) {
+	return x * x;
+	}
+
+/*
+function ParseJson1(){
+var text1 ='[{"idevento":1,"nome":"SEM.Instituto de Matemática Pura e Aplicada","sigla":"IMPA","areadeconcentracao":"matemática","instituicaoorganizadora":"IMPA"},{"idevento":2,"nome":"SEM. Dep. Econ Puc-Rio","sigla":"ECO","areadeconcentracao":"Economia","instituicaoorganizadora":"Puc-Rio"},{"idevento":3,"nome":"SEM. ACAD. Instituto de Computação-UFF","sigla":"IC-UFF","areadeconcentracao":"Computação","instituicaoorganizadora":"UFF"},{"idevento":4,"nome":"Portões Abertos Semana do Aviador","sigla":"ITA","areadeconcentracao":"Ciências Aeronáuticas","instituicaoorganizadora":"Instituto Tecnológico da Aeronautica"}]'
+let text1Array = text1.
+*/
+
+
+function ParseJson1(JSON){
+
+//////  var text1 ='[{"idevento":1,"nome":"SEM.Instituto de Matemática Pura e Aplicada","sigla":"IMPA","areadeconcentracao":"matemática","instituicaoorganizadora":"IMPA"},{"idevento":2,"nome":"SEM. Dep. Econ Puc-Rio","sigla":"ECO","areadeconcentracao":"Economia","instituicaoorganizadora":"Puc-Rio"},{"idevento":3,"nome":"SEM. ACAD. Instituto de Computação-UFF","sigla":"IC-UFF","areadeconcentracao":"Computação","instituicaoorganizadora":"UFF"},{"idevento":4,"nome":"Portões Abertos Semana do Aviador","sigla":"ITA","areadeconcentracao":"Ciências Aeronáuticas","instituicaoorganizadora":"Instituto Tecnológico da Aeronautica"}]';
+ //console.log(text1);
+  var JsonObject = JSON;
+ // var texto1 = JsonObject.idevento;
+ //superHeroes['members'][1]['powers'][2]
+  
+   var count = Object.keys(JsonObject).length;
+  //var count=4;
+  //var taskn=1;
+  for(i=0;i<=count;i++){
+		var eventos = "ID:                  " + JsonObject[i].idevento + " NOME:                  " + JsonObject[i].nome + " SIGLA:                  " + JsonObject[i].sigla + " AREA DE CONCENTRAÇÃO:                  " + JsonObject[i].areadeconcentracao + " INSTITUIÇÃO ORGANIZADORA:                  " + JsonObject[i].instituicaoorganizadora;
+		var p = document.createElement("li");
+			var node = document.createTextNode(eventos);
+			p.appendChild(node);
+			//var texto = obj.employees[i].firstName + " " + obj.employees[i].lastName;
+			var z = document.getElementById("tasks");
+			//document.getElementById("tasks").append(eventos);
+			z.appendChild(p); 
+		}
+  
+}
+
+
+function ParseJson2(JSON, ideventoSelecionada){
+
+//////  var text1 ='[{"idevento":1,"nome":"SEM.Instituto de Matemática Pura e Aplicada","sigla":"IMPA","areadeconcentracao":"matemática","instituicaoorganizadora":"IMPA"},{"idevento":2,"nome":"SEM. Dep. Econ Puc-Rio","sigla":"ECO","areadeconcentracao":"Economia","instituicaoorganizadora":"Puc-Rio"},{"idevento":3,"nome":"SEM. ACAD. Instituto de Computação-UFF","sigla":"IC-UFF","areadeconcentracao":"Computação","instituicaoorganizadora":"UFF"},{"idevento":4,"nome":"Portões Abertos Semana do Aviador","sigla":"ITA","areadeconcentracao":"Ciências Aeronáuticas","instituicaoorganizadora":"Instituto Tecnológico da Aeronautica"}]';
+ //console.log(text1);
+  var JsonObject = JSON;
+  console.log(JSON)
+ // var texto1 = JsonObject.idevento;
+ //superHeroes['members'][1]['powers'][2]
+  
+   var count = Object.keys(JsonObject).length;
+  //var count=4;
+  //var taskn=1;
+  for(i=0;i<=count;i++){
+		//var eventos = "ID:                  " + JsonObject[i].idevento + " NOME:                  " + JsonObject[i].nome + " SIGLA:                  " + JsonObject[i].sigla + " AREA DE CONCENTRAÇÃO:                  " + JsonObject[i].areadeconcentracao + " INSTITUIÇÃO ORGANIZADORA:                  " + JsonObject[i].instituicaoorganizadora;
+		if(ideventoSelecionada == ""){		
+		
+			var idedicao = JsonObject[i].idedicao;
+			var ano = JsonObject[i].ano;
+			var cidade = JsonObject[i].cidade; 
+			var datafim = JsonObject[i].datafim;
+			var datainicio =  JsonObject[i].datainicio;
+			var numero =  JsonObject[i].numero;
+			var pais =  JsonObject[i].pais;
+			
+			var idevento = JsonObject[i].fkIdevento.idevento;
+			var nome = JsonObject[i].fkIdevento.nome;
+			var sigla = JsonObject[i].fkIdevento.sigla;
+			var instituicaoorganizadora = JsonObject[i].fkIdevento.instituicaoorganizadora;
+			var areadeconcentracao = JsonObject[i].fkIdevento.areadeconcentracao;
+			
+			var eventos ="IDED:" + idedicao +" ANO: " + ano +" CIDADE:            " + cidade +" DATA FIM: "+ datafim+" DATA INI.: " + datainicio+ " NÚM.:" + numero+ " PAÍS.:" + pais + " IDEV.:" + idevento+ " NOME:"  + nome +  " SIGLA.:" +sigla +  " INSTITUIÇÃO ORGANIZADORA.:" + instituicaoorganizadora + " ÁREA DE CONCENTRAÇÃO.:" + areadeconcentracao
+			
+			var p = document.createElement("li");
+			var node = document.createTextNode(eventos);
+			p.appendChild(node);
+			//var texto = obj.employees[i].firstName + " " + obj.employees[i].lastName;
+			var z = document.getElementById("tasks1");
+			//document.getElementById("tasks").append(eventos);
+			z.appendChild(p); 
+		}else if(JsonObject[i].fkIdevento.idevento == ideventoSelecionada){
+			var idedicao = JsonObject[i].idedicao;
+			var ano = JsonObject[i].ano;
+			var cidade = JsonObject[i].cidade; 
+			var datafim = JsonObject[i].datafim;
+			var datainicio =  JsonObject[i].datainicio;
+			var numero =  JsonObject[i].numero;
+			var pais =  JsonObject[i].pais;
+			
+			var idevento = JsonObject[i].fkIdevento.idevento;
+			var nome = JsonObject[i].fkIdevento.nome;
+			var sigla = JsonObject[i].fkIdevento.sigla;
+			var instituicaoorganizadora = JsonObject[i].fkIdevento.instituicaoorganizadora;
+			var areadeconcentracao = JsonObject[i].fkIdevento.areadeconcentracao;
+			
+			var eventos ="IDED:" + idedicao +" ANO: " + ano +" CIDADE:            " + cidade +" DATA FIM: "+ datafim+" DATA INI.: " + datainicio+ " NÚM.:" + numero+ " PAÍS.:" + pais + " IDEV.:" + idevento+ " NOME:"  + nome +  " SIGLA.:" +sigla +  " INSTITUIÇÃO ORGANIZADORA.:" + instituicaoorganizadora + " ÁREA DE CONCENTRAÇÃO.:" + areadeconcentracao
+			
+			var p = document.createElement("li");
+			var node = document.createTextNode(eventos);
+			p.appendChild(node);
+			//var texto = obj.employees[i].firstName + " " + obj.employees[i].lastName;
+			var z = document.getElementById("tasks1");
+			//document.getElementById("tasks").append(eventos);
+			z.appendChild(p); 
+			 }		 
+		}
+}
+
+
+</script>
+
+	
+</body>
+</html>
+
+
