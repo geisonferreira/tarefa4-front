@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin
+@CrossOrigin //importante para app local permitir o front enviar e recuperar os JSON  quando o html não está no servidor
 @RestController
 public class edicaoController {
     @Autowired
@@ -88,6 +88,15 @@ public class edicaoController {
     System.out.println(cidade);
     return ResponseEntity.ok(result);
     }
+
+    @GetMapping(value = "/maxided")
+    public ResponseEntity<Integer> searchByidedicao() {
+        Integer result = repository.searchByidedicao();
+        System.out.println();
+        System.out.println();
+        return ResponseEntity.ok(result);
+    }
+
 
 
     //update

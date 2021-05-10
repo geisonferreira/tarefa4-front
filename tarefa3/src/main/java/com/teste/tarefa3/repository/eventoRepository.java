@@ -8,7 +8,8 @@ import java.util.List;
 
 public interface eventoRepository extends CrudRepository<eventomodel, Integer> {
 
-
+    @Query("SELECT max(idevento) FROM eventomodel")
+    Integer searchByidevento();
 
 
     //@Query("SELECT obj FROM eventomodel obj")

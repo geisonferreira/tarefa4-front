@@ -82,10 +82,19 @@ public class eventoController {
         }
     }*/
 
+
+    @GetMapping(value = "/maxidev")
+    public ResponseEntity<Integer> searchByidevento() {
+        Integer result = repository.searchByidevento();
+        System.out.println();
+        System.out.println();
+        return ResponseEntity.ok(result);
+    }
+
     @RestController
     public class HomeController {
 
-        @RequestMapping("/")
+        @RequestMapping("/testeee")
         public String home() {
             return "<!DOCTYPE html>\n" +
                     "<html lang=\"en\">\n" +

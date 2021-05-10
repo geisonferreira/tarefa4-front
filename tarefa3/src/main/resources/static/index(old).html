@@ -5,17 +5,17 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <title>EVENTOS</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<style>
-		
+<head>
+    <title>EVENTOS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
 		.container {
 			margin:0 auto;
 			padding:0 5px 0 10px;
 			max-width:1400px;
-			
+
 		}
 		.container1 {
 			margin:0;
@@ -30,10 +30,6 @@ and open the template in the editor.
 		li{
 		margin:0;
 		padding:0 1px 5px 1px;
-		word-spacing: 0x;
-		white-space: pre-wrap;
-		text-align:left;		
-		
 		}
 		.container2 {
 			margin:0;
@@ -55,11 +51,11 @@ and open the template in the editor.
 		font-family: consolas, sans-serif;
 		width:300px;
 		}
-		
+
 		body{
 		font-family: consolas, sans-serif;
 		}
-		
+
 		button{
 		background-color: black;
 		color:white;
@@ -67,94 +63,92 @@ and open the template in the editor.
 		width:180px;
 		height:40px;
 		}
-		
+
 		</style>
-		
-	
-    </head>
-  <body>    
-    <p style="text-align:right"> <button type="button" onclick="Atualizar();" value="teste" >Atualizar</button></p>
-    <h1 style="color: white; background-color:Black; font-weight:600">Eventos</h1>
-	<div class="container">
-		<ul id="tasks"  style = list-style:none;>
-			<li>Titulos da Tabela Eventos!</li>
-			<li>IDEV|NOME----------------|SIGLA--|INSTITUIÇÃO ORGANIZADORA</li>
-		</ul>
-	</div>
-		
-    <button type="button" onclick="main('http://localhost:8080/ev/todos');" value="Lista Eventos">Lista Eventos</button>
-	
 
- <h1 style="color: white; background-color:Black; font-weight:600">Edições</h1>
-	<div class="container1">
-		<ul id="tasks1"  style = list-style:none;>
-			<li>Titulos da Tabela EDIÇÕES!</li>
-			<li>IDEV|IDED|NOME----------------|SIGLA--|INSTITUIÇÃO ORGANIZADORA|ÁREA DE CONCENTRAÇÃO|NÚM|ANO-|DATA INI|DATA FIM|CIDADE--------------|PAÍS-----|</li>
-		</ul>
-	</div>
-	
-	<p>Escolha o ID de um Evento para consultar as edições </p>
-	<input style="width:80px"  id="EdicaoUmEvento" type="number" min="1">	
-	<input type="button" onclick="main('http://localhost:8080/ed/todos');" value="Lista Edição (por ID)" >
 
-	<p>Escolha a partir da data as edições e eventos </p>
-	<input style="width:80px"  id="EdicaoUmEventoData" type="number" min="20190101">	
-	<input type="button" onclick="main('http://localhost:8080/search-data?min=');" value="Lista Edição (por ID e Data)" >
+</head>
+<body>
 
-	<div class="container2">
-		<p style="color: white; background-color:Black; font-weight:600" >Inserção/Remoção de Eventos </p>
-		<p>ID:  <input  style="width:80px" id="idevento" type="number"> NOME: <input style="width:700px" id="nome" type="text"> SIGLA: <input style="width:80px" id="sigla" type="text">  </p>
-		<p>INSTITUIÇÃO ORGANIZADORA:  <input style="width:800px" id="instituicaoorganizadora" type="text"> </p > 
-		<p> ÁREA DE CONCENTRAÇÃO:           <input style="width:850px" id="areadeconcentracao" type="text"> </p>
-	</div>
+<h1 style="color: white; background-color:Black; font-weight:600">Eventos</h1>
+<div class="container">
+    <ul id="tasks"  style = list-style:none;>
+        <li>Titulos da Tabela Eventos!</li>
+    </ul>
+</div>
+
+<button type="button" onclick="main('http://localhost:8080/ev/todos');" value="Lista Eventos">Lista Eventos</button>
+
+
+<h1 style="color: white; background-color:Black; font-weight:600">Edições</h1>
+<div class="container1">
+    <ul id="tasks1"  style = list-style:none;>
+        <li>Titulos da Tabela EDIÇÕES!</li>
+    </ul>
+</div>
+
+<p>Escolha o ID de um Evento para consultar as edições </p>
+<input style="width:80px"  id="EdicaoUmEvento" type="number" min="1">
+<input type="button" onclick="main('http://localhost:8080/ed/todos');" value="Lista Edição (por ID)" >
+
+<p>Escolha a partir da data as edições e eventos </p>
+<input style="width:80px"  id="EdicaoUmEventoData" type="number" min="20190101">
+<input type="button" onclick="main('http://localhost:8080/search-data?min=');" value="Lista Edição (por ID e Data)" >
+
+<div class="container2">
+    <p style="color: white; background-color:Black; font-weight:600" >Inserção/Remoção de Eventos </p>
+    <p>ID:  <input  style="width:80px" id="idevento" type="number"> NOME: <input style="width:700px" id="nome" type="text"> SIGLA: <input style="width:80px" id="sigla" type="text">  </p>
+    <p>INSTITUIÇÃO ORGANIZADORA:  <input style="width:800px" id="instituicaoorganizadora" type="text"> </p >
+    <p> ÁREA DE CONCENTRAÇÃO:           <input style="width:850px" id="areadeconcentracao" type="text"> </p>
+</div>
 
 <p style="text-align:right"> <button type="button" onclick="main('http://localhost:8080/ev/salvar');" value="Inserir Evento">Inserir Evento</button></p>
 <p style="text-align:right"> Digite a ID do evento a ser deletado <input style="width:80px" id="deletarEvento" type="text"> </p>
 <p style="text-align:right"> <button type="button" onclick="main('http://localhost:8080/ev-deletar');" value="Deletar" >Deletar Evento</button></p>
 
 <div class="container3">
-<p style="color: white; background-color:Black; font-weight:600" >Inserção/Remoção de Edição </p>
+    <p style="color: white; background-color:Black; font-weight:600" >Inserção/Remoção de Edição </p>
 
-		<p>Ref Evento:  <input style="width:80px" id="fkIdevento" type="number" min="1" > IDed:  <input style="width:80px" id="idedicao" type="number" min="1"></p > 	
-		<p>Ano:  <input style="width:80px" id="ano" type="text"> Cidade:  <input style="width:800px" id="cidade" type="text"> Num. Ed.:  <input style="width:80px" id="numero" type="text"> </p > 
-		<p>Data Início (aaaammdd):  <input style="width:80px" id="datafim" type="number" min="20200101"> Data Fim(aaaammdd):  <input style="width:80px" id="datainicio" type="number" min="20200101"> País:  <input style="width:80px" id="pais" type="text">  </p > 
-		
-<p style="text-align:right"> <button type="button" onclick="main('http://localhost:8080/ed/salvar');" value="Inserir Evento">Inserir Edição</button></p>
-<p style="text-align:right"> Digite a IDev do evento a ser deletado <input style="width:80px" id="deletarEdicao" type="text"> </p>
-<p style="text-align:right"> <button type="button" onclick="main('http://localhost:8080/ed-deletar');" value="Deletar" >Deletar Edição</button></p>
+    <p>Ref Evento:  <input style="width:80px" id="fkIdevento" type="number" min="1" > IDed:  <input style="width:80px" id="idedicao" type="number" min="1"></p >
+    <p>Ano:  <input style="width:80px" id="ano" type="text"> Cidade:  <input style="width:800px" id="cidade" type="text"> Num. Ed.:  <input style="width:80px" id="numero" type="text"> </p >
+    <p>Data Início (aaaammdd):  <input style="width:80px" id="datafim" type="number" min="20200101"> Data Fim(aaaammdd):  <input style="width:80px" id="datainicio" type="number" min="20200101"> País:  <input style="width:80px" id="pais" type="text">  </p >
+
+    <p style="text-align:right"> <button type="button" onclick="main('http://localhost:8080/ed/salvar');" value="Inserir Evento">Inserir Edição</button></p>
+    <p style="text-align:right"> Digite a IDev do evento a ser deletado <input style="width:80px" id="deletarEdicao" type="text"> </p>
+    <p style="text-align:right"> <button type="button" onclick="main('http://localhost:8080/ed-deletar');" value="Deletar" >Deletar Edição</button></p>
 
 
 
-<p style="text-align:right"> <button type="button" onclick="Atualizar();" value="teste" >Atualizar</button></p>
-		
-		
+    <p style="text-align:right"> <button type="button" onclick="pegarIDev();" value="teste" >teste</button></p>
+
+
 
 
 </div>
- 
+
 
 <script type="text/javascript">
 
 window.onload = pegarIDev();
 window.onload = pegarIDed();
 function main (EndAPI){
-		
+
 		if(EndAPI == 'http://localhost:8080/ev/todos'){
 			//Funcao = "listar todos eventos"
 			JsonObject = chamarJson('http://localhost:8080/ev/todos');
-			Controlador(EndAPI,JsonObject) 
+			Controlador(EndAPI,JsonObject)
 			//ParseJson1(JsonObject);
         }else if(EndAPI == 'http://localhost:8080/ed/todos'){
             //Funcao = "listar todos edições"
 			JsonObject = chamarJson('http://localhost:8080/ed/todos');
-			Controlador(EndAPI,JsonObject) 
+			Controlador(EndAPI,JsonObject)
 			//ParseJson2(JsonObject);
         }else if (EndAPI == 'http://localhost:8080/ev/salvar'){
 				JsonObject = criarJsonEvento()
 				empurraJson(EndAPI, JsonObject)
         }else if(EndAPI == 'http://localhost:8080/ev-deletar'){
 				var ideventoSelecionada = document.getElementById("deletarEvento").value;
-                deletar(EndAPI,ideventoSelecionada);	
+                deletar(EndAPI,ideventoSelecionada);
 		}else if (EndAPI == 'http://localhost:8080/ed/salvar'){
 				JsonObject = criarJsonEdicao()
 				empurraJson(EndAPI, JsonObject)
@@ -166,16 +160,11 @@ function main (EndAPI){
 			var dataSelecionada = document.getElementById("EdicaoUmEventoData").value;
 			var url = EndAPI + dataSelecionada;
 			JsonObject = chamarJson(url);
-			Controlador(EndAPI,JsonObject) 
+			Controlador(EndAPI,JsonObject)
 			//ParseJson2(JsonObject);
         }else{
 				console.log("deu ruim")
         }
-//window.location.reload();		
-}
-
-function Atualizar(){
-window.location.reload();		
 }
 
 
@@ -183,9 +172,9 @@ window.location.reload();
 function Controlador(EndAPI,JsonObject){
 		var JsonObject = JsonObject
 		if(EndAPI == "http://localhost:8080/ev/todos"){
-			
+
 			ParseJson1(JsonObject);
-			
+
         }
         else
             if(EndAPI == "http://localhost:8080/ed/todos")
@@ -205,7 +194,7 @@ function Controlador(EndAPI,JsonObject){
 			 else
             {
                 console.log("deu ruim")
-			}
+            }
 }
 
 function chamarJson(EndAPI) {
@@ -227,26 +216,15 @@ function ParseJson1(JSON){
   var JsonObject = JSON;
   var count = Object.keys(JsonObject).length;
   for(i=0;i<=count;i++){
-		//var eventos = "ID:" + JsonObject[i].idevento + " NOME:" + JsonObject[i].nome + " SIGLA:" + JsonObject[i].sigla + " AREA DE CONCENTRAÇÃO:" + JsonObject[i].areadeconcentracao + " INSTITUIÇÃO ORGANIZADORA:" + JsonObject[i].instituicaoorganizadora;
-			
-			var idevento = JsonObject[i].idevento;
-			var nome = (JsonObject[i].nome);
-			var sigla = JsonObject[i].sigla;
-			var instituicaoorganizadora = JsonObject[i].instituicaoorganizadora;
-			var areadeconcentracao = JsonObject[i].areadeconcentracao;
-		
-		var repetir = " ";
-		var eventos =  idevento + repetir.repeat(5-(idevento.toString.length)) +  nome + repetir.repeat(22-nome.length)+ 
-			sigla +  repetir.repeat(8-sigla.length) + instituicaoorganizadora + repetir.repeat(24-instituicaoorganizadora.length)
-			
+		var eventos = "ID:                  " + JsonObject[i].idevento + " NOME:                  " + JsonObject[i].nome + " SIGLA:                  " + JsonObject[i].sigla + " AREA DE CONCENTRAÇÃO:                  " + JsonObject[i].areadeconcentracao + " INSTITUIÇÃO ORGANIZADORA:                  " + JsonObject[i].instituicaoorganizadora;
 		var p = document.createElement("li");
 			var node = document.createTextNode(eventos);
 			p.appendChild(node);
 			//var texto = obj.employees[i].firstName + " " + obj.employees[i].lastName;
 			var z = document.getElementById("tasks");
 			//document.getElementById("tasks").append(eventos);
-			z.appendChild(p); 
-		}  
+			z.appendChild(p);
+		}
 }
 
 
@@ -255,79 +233,57 @@ function ParseJson2(JSON, ideventoSelecionada){
   console.log(JSON)
    var count = Object.keys(JsonObject).length;
   for(i=0;i<=count;i++){
-		if(ideventoSelecionada == ""){		
-		
+		if(ideventoSelecionada == ""){
+
 			var idedicao = JsonObject[i].idedicao;
 			var ano = JsonObject[i].ano;
-			var cidade = JsonObject[i].cidade; 
+			var cidade = JsonObject[i].cidade;
 			var datafim = JsonObject[i].datafim;
 			var datainicio =  JsonObject[i].datainicio;
 			var numero =  JsonObject[i].numero;
 			var pais =  JsonObject[i].pais;
-			
-			var idevento = JsonObject[i].fkIdevento.idevento;
-			var nome = (JsonObject[i].fkIdevento.nome);
-			var sigla = JsonObject[i].fkIdevento.sigla;
-			var instituicaoorganizadora = JsonObject[i].fkIdevento.instituicaoorganizadora;
-			var areadeconcentracao = JsonObject[i].fkIdevento.areadeconcentracao;
-			
-			//IDEV|IDED|NOME----------------|SIGLA--|INSTITUIÇÃO ORGANIZADORA|ÁREA DE CONCENTRAÇÃO|NÚM|ANO-|DATA INI|DATA FIM|CIDADE--------------|PAÍS-----|
-			//var eventos = idevento + "        " +  idedicao + "     |"+ nome + "                      |"  + sigla +  "        |" + instituicaoorganizadora + "                        |" + areadeconcentracao+ "                  |" + ano + "     |" + cidade + "              |"+  datainicio+ "        |" +datafim+ "        |" + numero+ "    |" + pais + "  |";
-			//var eventos = "IDEV:              " + idevento + " IDED: " + idedicao + "                   "+ nome + " Sigla: "  + sigla +  " Instituição Organizadora: " + instituicaoorganizadora + " Area de concentração: " + areadeconcentracao+ " Ano: " + ano + " Cidade: " + cidade + " Data de início: "+  datainicio+ " Data fim: " +datafim+ " Número: " + numero+ " País: " + pais;
-			
-			
-			//var idedicaox= 20-nome.length;
-			//nome = nome + repetir.repeat(idedicaox);
-			
-			var repetir = " "
-			var eventos =  idevento + repetir.repeat(5-(idevento.toString.length)) + idedicao + repetir.repeat(5-((idedicao.toString).length))+ nome + repetir.repeat(22-nome.length)+ 
-			sigla +  repetir.repeat(8-sigla.length) + instituicaoorganizadora + repetir.repeat(24-instituicaoorganizadora.length) + areadeconcentracao+repetir.repeat(21-areadeconcentracao.length) + numero + repetir.repeat(4	-numero.length) +  ano + repetir.repeat(6-ano.length)+
-			 datainicio+ repetir.repeat(2-(idevento.toString.length)) +datafim+ repetir.repeat(2-(idevento.toString.length)) + cidade + repetir.repeat(20-(cidade.length)) +   pais;
-			
-			
-			//var eventos ="IDED:" + idedicao +" ANO: " + ano +" CIDADE:            " + cidade +" DATA FIM: "+ datafim+" DATA INI.: " + datainicio+ " NÚM.:" + numero+ " PAÍS.:" + pais + " IDEV.:" + idevento+ " NOME:"  + nome +  " SIGLA.:" +sigla +  " INSTITUIÇÃO ORGANIZADORA.:" + instituicaoorganizadora + " ÁREA DE CONCENTRAÇÃO.:" + areadeconcentracao
-			
-			var p = document.createElement("li");
-			var node = document.createTextNode(eventos);
-			p.appendChild(node);
-			var z = document.getElementById("tasks1");
-			z.appendChild(p); 
-		}else if(JsonObject[i].fkIdevento.idevento == ideventoSelecionada){
-			var idedicao = JsonObject[i].idedicao;
-			var ano = JsonObject[i].ano;
-			var cidade = JsonObject[i].cidade; 
-			var datafim = JsonObject[i].datafim;
-			var datainicio =  JsonObject[i].datainicio;
-			var numero =  JsonObject[i].numero;
-			var pais =  JsonObject[i].pais;
-			
+
 			var idevento = JsonObject[i].fkIdevento.idevento;
 			var nome = JsonObject[i].fkIdevento.nome;
 			var sigla = JsonObject[i].fkIdevento.sigla;
 			var instituicaoorganizadora = JsonObject[i].fkIdevento.instituicaoorganizadora;
 			var areadeconcentracao = JsonObject[i].fkIdevento.areadeconcentracao;
-			
-			//var eventos ="IDED:" + idedicao +" ANO: " + ano +" CIDADE:            " + cidade +" DATA FIM: "+ datafim+" DATA INI.: " + datainicio+ " NÚM.:" + numero+ " PAÍS.:" + pais + " IDEV.:" + idevento+ " NOME:"  + nome +  " SIGLA.:" +sigla +  " INSTITUIÇÃO ORGANIZADORA.:" + instituicaoorganizadora + " ÁREA DE CONCENTRAÇÃO.:" + areadeconcentracao
-			
-			var repetir = " "
-			var eventos =  idevento + repetir.repeat(5-(idevento.toString.length)) + idedicao + repetir.repeat(5-((idedicao.toString).length))+ nome + repetir.repeat(22-nome.length)+ 
-			sigla +  repetir.repeat(8-sigla.length) + instituicaoorganizadora + repetir.repeat(24-instituicaoorganizadora.length) + areadeconcentracao+repetir.repeat(21-areadeconcentracao.length) + numero + repetir.repeat(4	-numero.length) +  ano + repetir.repeat(6-ano.length)+
-			 datainicio+ repetir.repeat(2-(idevento.toString.length)) +datafim+ repetir.repeat(2-(idevento.toString.length)) + cidade + repetir.repeat(20-(cidade.length)) +   pais;
-			
-			
-			
-			
+
+			var eventos ="IDED:" + idedicao +" ANO: " + ano +" CIDADE:            " + cidade +" DATA FIM: "+ datafim+" DATA INI.: " + datainicio+ " NÚM.:" + numero+ " PAÍS.:" + pais + " IDEV.:" + idevento+ " NOME:"  + nome +  " SIGLA.:" +sigla +  " INSTITUIÇÃO ORGANIZADORA.:" + instituicaoorganizadora + " ÁREA DE CONCENTRAÇÃO.:" + areadeconcentracao
+
 			var p = document.createElement("li");
 			var node = document.createTextNode(eventos);
 			p.appendChild(node);
 			var z = document.getElementById("tasks1");
-			z.appendChild(p); 
-			 }		 
+			z.appendChild(p);
+		}else if(JsonObject[i].fkIdevento.idevento == ideventoSelecionada){
+			var idedicao = JsonObject[i].idedicao;
+			var ano = JsonObject[i].ano;
+			var cidade = JsonObject[i].cidade;
+			var datafim = JsonObject[i].datafim;
+			var datainicio =  JsonObject[i].datainicio;
+			var numero =  JsonObject[i].numero;
+			var pais =  JsonObject[i].pais;
+
+			var idevento = JsonObject[i].fkIdevento.idevento;
+			var nome = JsonObject[i].fkIdevento.nome;
+			var sigla = JsonObject[i].fkIdevento.sigla;
+			var instituicaoorganizadora = JsonObject[i].fkIdevento.instituicaoorganizadora;
+			var areadeconcentracao = JsonObject[i].fkIdevento.areadeconcentracao;
+
+			var eventos ="IDED:" + idedicao +" ANO: " + ano +" CIDADE:            " + cidade +" DATA FIM: "+ datafim+" DATA INI.: " + datainicio+ " NÚM.:" + numero+ " PAÍS.:" + pais + " IDEV.:" + idevento+ " NOME:"  + nome +  " SIGLA.:" +sigla +  " INSTITUIÇÃO ORGANIZADORA.:" + instituicaoorganizadora + " ÁREA DE CONCENTRAÇÃO.:" + areadeconcentracao
+
+			var p = document.createElement("li");
+			var node = document.createTextNode(eventos);
+			p.appendChild(node);
+			var z = document.getElementById("tasks1");
+			z.appendChild(p);
+			 }
 		}
 }
 
 function criarJsonEvento(){
-			
+
 			//pegarIDev()
 			//var idevento =  document.getElementById("idevento").value;
 			var idevento = document.getElementById("idevento").value;
@@ -337,12 +293,12 @@ function criarJsonEvento(){
 			var areadeconcentracao =  document.getElementById("areadeconcentracao").value;
 
 			var objEventos = {};
-			objEventos["idevento"] = parseInt(idevento); 
-			objEventos["nome"] = nome; 
-			objEventos["sigla"] = sigla; 
-			objEventos["instituicaoorganizadora"] = instituicaoorganizadora; 
-			objEventos["areadeconcentracao"] = areadeconcentracao; 
-		
+			objEventos["idevento"] = parseInt(idevento);
+			objEventos["nome"] = nome;
+			objEventos["sigla"] = sigla;
+			objEventos["instituicaoorganizadora"] = instituicaoorganizadora;
+			objEventos["areadeconcentracao"] = areadeconcentracao;
+
 return objEventos;}
 
 function criarJsonEdicao(){
@@ -356,14 +312,14 @@ function criarJsonEdicao(){
 			var fkIdevento = document.getElementById("fkIdevento").value;
 
 			var objEdição = {};
-			objEdição["idedicao"] = parseInt(idedicao); 
-			objEdição["numero"] = numero; 
-			objEdição["ano"] = ano; 
-			objEdição["datainicio"] = parseFloat(datainicio); 
-			objEdição["datafim"] = parseFloat(datafim); 
-			objEdição["cidade"] = cidade; 
-			objEdição["pais"] = pais; 
-			objEdição["fkIdevento"] = parseInt(fkIdevento); 
+			objEdição["idedicao"] = parseInt(idedicao);
+			objEdição["numero"] = numero;
+			objEdição["ano"] = ano;
+			objEdição["datainicio"] = parseFloat(datainicio);
+			objEdição["datafim"] = parseFloat(datafim);
+			objEdição["cidade"] = cidade;
+			objEdição["pais"] = pais;
+			objEdição["fkIdevento"] = parseInt(fkIdevento);
 return objEdição;
 }
 
@@ -376,7 +332,6 @@ fetch(url, {
 }).then(res => res.json())
 .then(response => console.log('Success:', JSON.stringify(response)))
 .catch(error => console.error('Error:', error));
-alert("inserido!" + url);
 }
 
 function deletar(url,id){
@@ -386,7 +341,6 @@ method: 'DELETE'
 }).then(res => res.json())
 .then(response => console.log('Success delete id:', JSON.stringify(response)))
 .catch(error => console.error('Error delete id:', error));
-alert("deletado!" + id);
 }
 
 
@@ -425,8 +379,6 @@ function pegarIDed(){
 
 </script>
 
-	
+
 </body>
 </html>
-
-

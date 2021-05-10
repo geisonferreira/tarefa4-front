@@ -37,6 +37,11 @@ public interface edicaoRepository extends CrudRepository<edicaoModel, Integer> {
     @Query("SELECT obj FROM edicaoModel obj WHERE obj.datainicio >= :min AND LOWER(obj.cidade) LIKE LOWER(CONCAT('%',:cidade,'%'))")
     List<edicaoModel> searchByDataCidade(Double min, String cidade);
 
+    @Query("SELECT max(idedicao) FROM edicaoModel")
+    Integer searchByidedicao();
+
+   // @Query(value = "SELECT max(price) FROM Product")
+    //public BigDecimal max();
 
 }
 
